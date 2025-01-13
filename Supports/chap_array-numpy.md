@@ -134,13 +134,14 @@ Pour certains exercices utilisez `np.arange`
 #### **Exercice 3 : Manipulation des types dans les calculs**
 1. Additionnez un array d'entiers et un array de floats. Vérifiez le type du résultat.
 2. Multipliez un array booléen par un entier. Observez le résultat.
-3. Vous utiliserez un tableau np.zeros qui crée un tableau de zéro(s), pensez à le caster pour transformer les zéros en False
+
+### **Exercice 4 : Manipulation des types booleans**
+
+Vous utiliserez un tableau np.zeros qui crée un tableau de zéro(s), pensez à le caster pour transformer les zéros en False
 ```python
 N = 10
 lamps = np.zeros(N, dtype=bool)
 ```
-
-### **Exercice 4 : Manipulation des types booleans**
 
 >[!NOTE]
 >Vous avez une série de lampes alignées, représentées par un array de booléens.  
