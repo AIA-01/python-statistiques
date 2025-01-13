@@ -127,15 +127,52 @@ Pour certains exercices utilisez `np.arange`
 2. Créez un array contenant les nombres décimaux de 1.0 à 10.0 avec le type `float`.
 3. Créez un array contenant uniquement des valeurs `True` et `False`.
 
+```python
+#  Correction
+## 1
+a = np.array( range(1, 11) , dtype=int )
+# identique mais avec arange
+a = np.arange(1, 11, dtype=int )
+
+## 2
+b = np.arange(1, 11, dtype=float )
+
+## 3
+c = np.array( [True, False, True ], dtype=bool)
+d = np.zeros(10, dtype=bool) # tableau de False
+```
+
 #### **Exercice 2 : Conversion de type**
 1. Créez un array avec des nombres décimaux (floats). Convertissez-le en type `int`.
 2. Créez un array de type booléen et convertissez-le en type `int`.
+
+```python
+# Ex1
+e = np.array([1.1, 2.2, 3.3, 4.4], dtype=float)
+e = e.astype(int)
+# Ex2
+f = np.array( [True, False, True ], dtype=bool)
+f = f.astype(int)
+print(f)
+
+# négation et changement de type
+(~np.array([True, False])).astype(int)
+```
 
 #### **Exercice 3 : Manipulation des types dans les calculs**
 1. Additionnez un array d'entiers et un array de floats. Vérifiez le type du résultat.
 2. Multipliez un array booléen par un entier. Observez le résultat.
 
+```python
+# 1
+g = a + b 
+g.dtype
+# 2
+h = 2*c
+```
+
 ### **Exercice 4 : Manipulation des types booleans**
+
 
 Vous utiliserez un tableau np.zeros qui crée un tableau de zéro(s), pensez à le caster pour transformer les zéros en False
 ```python
@@ -201,4 +238,21 @@ print("État initial des lampes :", lamps)
 # À compléter...
 
 # Affichez le résultat final
+```
+
+### **Exercice 5** Température
+
+Exercice température
+
+Nous avons relevé des températures au mois de Janvier. Répondez aux questions suivantes :
+
+1. Donnez toutes les températures qui sont supérieures à 0.
+2. Comparez les températures supérieures et inférieures à 0.
+3. Donnez le pourcentage des températures positives sur le mois.
+4. Créez un tableau days pour les jours du mois et donnez les jours pour lesquels la température était supérieure à 0.
+5. Donnez toutes les températures supérieures à 0 à partir du dixième jour du mois.
+6. Remplacez maintenant les températures négatives par la moyenne des températures positives.
+```python
+january = np.array([-2,  5, -5,  6, -2,  0,  6,  2,  8,  0,  6, -1,  3,  3,  7,  0, -5,
+        7,  4,  7,  8, -1,  5, -2,  3, -3, -2,  7,  8,  4,  2])
 ```
