@@ -191,27 +191,22 @@ Expliquez les champs du DataFrame.
 ### Partie 4  - graphique
 
 1. **Visualisation de la distribution des événements** :
-   - **Question 1** : Créez une visualisation pour afficher le nombre d'occurrences de chaque type d'événement (par exemple, "view", "addtocart", "transaction") dans le DataFrame `events`. Utilisez un graphique en barres pour montrer la répartition de ces événements.
+   Créez une visualisation pour afficher le nombre d'occurrences de chaque type d'événement (par exemple, "view", "addtocart", "transaction") dans le DataFrame `events`. Utilisez un graphique en barres pour montrer la répartition de ces événements.
      - *Indications :* Utilisez la fonction `sns.countplot()` pour créer le graphique en barres. N'oubliez pas d'ajouter un titre ainsi que des labels pour les axes afin de rendre le graphique plus lisible.
 
 2. **Affichage d'un graphique circulaire des événements** :
-   - **Question 2** : Créez un graphique en camembert pour visualiser la distribution des événements dans le DataFrame `events`. 
+   Créez un graphique en camembert pour visualiser la distribution des événements dans le DataFrame `events`. 
      - *Indications :* Utilisez `plt.pie()` pour créer le graphique circulaire. Explosez légèrement certaines tranches pour les mettre en évidence et affichez les pourcentages avec `autopct='%1.1f%%'`. Ajoutez un titre pour clarifier ce que le graphique montre.
 
 3. **Personnalisation du graphique** :
-   - **Question 3** : En utilisant le graphique en camembert créé précédemment, assurez-vous que l'aspect du graphique est circulaire (c'est-à-dire que l'axe est égal). Que faites-vous dans le code pour garantir que le graphique ait une forme circulaire ?
+   En utilisant le graphique en camembert créé précédemment, assurez-vous que l'aspect du graphique est circulaire (c'est-à-dire que l'axe est égal). Que faites-vous dans le code pour garantir que le graphique ait une forme circulaire ?
      - *Indications :* Utilisez la fonction `plt.axis('equal')` pour vous assurer que le graphique circulaire a un aspect proportionnel et bien centré.
 
-4. **Explication des résultats de la répartition des événements** :
-   - **Question 4** : Quel est l'objectif d'exploser certaines tranches dans le graphique en camembert ? Pourquoi avons-nous choisi d'exploser la deuxième et la troisième tranche dans le code ?
-     - *Indications :* Expliquez pourquoi l'explosion de certaines tranches peut être utilisée pour mettre en évidence des événements spécifiques et faciliter leur interprétation.
-
-5. **Comparaison entre les types d'événements** :
-   - **Question 5** : Après avoir créé le graphique en barres et en camembert, quelle conclusion pouvez-vous tirer sur la répartition des événements dans le DataFrame ? Quel événement semble être le plus fréquent, et comment cela pourrait-il être utile pour l'analyse du comportement des utilisateurs ?
+4. **Comparaison entre les types d'événements** :
+   Après avoir créé le graphique en barres et en camembert, quelle conclusion pouvez-vous tirer sur la répartition des événements dans le DataFrame ? Quel événement semble être le plus fréquent, et comment cela pourrait-il être utile pour l'analyse du comportement des utilisateurs ?
      - *Indications :* Analysez la fréquence des événements `view`, `addtocart`, et `transaction`, et discutez de l'importance de ces événements dans l'analyse de la conversion et de l'engagement des utilisateurs.
 
 ### Partie 5 - analyse d'autres fichiers
-
 
 1. Analyse des catégories de produits
 
