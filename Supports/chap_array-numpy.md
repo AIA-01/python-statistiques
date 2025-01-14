@@ -242,8 +242,6 @@ print("État initial des lampes :", lamps)
 
 ### **Exercice 5** Température
 
-Exercice température
-
 Nous avons relevé des températures au mois de Janvier. Répondez aux questions suivantes :
 
 1. Donnez toutes les températures qui sont supérieures à 0.
@@ -252,7 +250,19 @@ Nous avons relevé des températures au mois de Janvier. Répondez aux questions
 4. Créez un tableau days pour les jours du mois et donnez les jours pour lesquels la température était supérieure à 0.
 5. Donnez toutes les températures supérieures à 0 à partir du dixième jour du mois.
 6. Remplacez maintenant les températures négatives par la moyenne des températures positives.
+7. Quels jours du mois la température était-elle inférieure à 0 ?
+  Utilisez un mask pour identifier les jours avec des températures négatives et affichez les indices correspondants dans le tableau days.
+8. Donnez la température maximale et minimale du mois.
+  Utilisez les fonctions np.max() et np.min() pour obtenir les températures extrêmes.
+9. Donnez la moyenne des températures à partir du 15ème jour du mois.
+  Utilisez un slice du tableau à partir du 15ème jour et calculez la moyenne des températures.
+10. Quels jours la température était-elle égale à 0 ?
+  Créez un mask pour détecter les températures égales à 0 et affichez les jours correspondants.
+11. Quels jours la température était-elle supérieure à la moyenne du mois ?
+  Calculez la moyenne des températures et utilisez un mask pour identifier les jours où la température dépasse cette moyenne.
+   
 ```python
 january = np.array([-2,  5, -5,  6, -2,  0,  6,  2,  8,  0,  6, -1,  3,  3,  7,  0, -5,
         7,  4,  7,  8, -1,  5, -2,  3, -3, -2,  7,  8,  4,  2])
 ```
+

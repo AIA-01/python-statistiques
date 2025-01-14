@@ -161,8 +161,83 @@ L'objectif est de comparer les taux de conversion des deux groupes et de voir si
 4. Créer un DataFrame des événements "transaction" pour calculer les conversions
 5. Calculer le taux de conversion pour les deux groupes
 
+```python
+import pandas as pd
+events = pd.read_csv('data/events.csv')
+
+view_events = events[events['event'] == 'view']
+addtocart_events = events[events['event'] == 'addtocart']
+transaction_events = events[events['event'] == 'transaction']
+# Taux de conversion pour les utilisateurs ayant ajouté au panier
+addtocart_conversions = transaction_events[transaction_events['visitorid'].isin(users_addtocart)]['visitorid'].nunique()
+addtocart_total_users = len(users_addtocart)
+addtocart_conversion_rate = addtocart_conversions / addtocart_total_users * 100
+print(f"Taux de conversion des utilisateurs ayant ajouté des produits au panier : {addtocart_conversion_rate:.2f}%")
+
+# Taux de conversion pour les utilisateurs ayant seulement vu des produits et achetés
+# les utilisateurs peuvent avoir vu les produits et les avoir acheté mais pas mis dans le panier
+view_only_users = events[~events['visitorid'].isin(users_addtocart)]['visitorid'].unique()
+view_only_conversions = transaction_events[transaction_events['visitorid'].isin(view_only_users)]['visitorid'].nunique()
+view_only_total_users = len(view_only_users)
+view_only_conversion_rate = view_only_conversions / view_only_total_users * 100
+print(f"Taux de conversion des utilisateurs ayant seulement vu des produits : {view_only_conversion_rate:.2f}%")
+```
+
 ### Partie 3 - faire un document détaillé sur les champs des DataFrames étudiés
 
 Expliquez les champs du DataFrame.
 
 
+### Partie 4  - graphique
+
+1. **Visualisation de la distribution des événements** :
+   - **Question 1** : Créez une visualisation pour afficher le nombre d'occurrences de chaque type d'événement (par exemple, "view", "addtocart", "transaction") dans le DataFrame `events`. Utilisez un graphique en barres pour montrer la répartition de ces événements.
+     - *Indications :* Utilisez la fonction `sns.countplot()` pour créer le graphique en barres. N'oubliez pas d'ajouter un titre ainsi que des labels pour les axes afin de rendre le graphique plus lisible.
+
+2. **Affichage d'un graphique circulaire des événements** :
+   - **Question 2** : Créez un graphique en camembert pour visualiser la distribution des événements dans le DataFrame `events`. 
+     - *Indications :* Utilisez `plt.pie()` pour créer le graphique circulaire. Explosez légèrement certaines tranches pour les mettre en évidence et affichez les pourcentages avec `autopct='%1.1f%%'`. Ajoutez un titre pour clarifier ce que le graphique montre.
+
+3. **Personnalisation du graphique** :
+   - **Question 3** : En utilisant le graphique en camembert créé précédemment, assurez-vous que l'aspect du graphique est circulaire (c'est-à-dire que l'axe est égal). Que faites-vous dans le code pour garantir que le graphique ait une forme circulaire ?
+     - *Indications :* Utilisez la fonction `plt.axis('equal')` pour vous assurer que le graphique circulaire a un aspect proportionnel et bien centré.
+
+4. **Explication des résultats de la répartition des événements** :
+   - **Question 4** : Quel est l'objectif d'exploser certaines tranches dans le graphique en camembert ? Pourquoi avons-nous choisi d'exploser la deuxième et la troisième tranche dans le code ?
+     - *Indications :* Expliquez pourquoi l'explosion de certaines tranches peut être utilisée pour mettre en évidence des événements spécifiques et faciliter leur interprétation.
+
+5. **Comparaison entre les types d'événements** :
+   - **Question 5** : Après avoir créé le graphique en barres et en camembert, quelle conclusion pouvez-vous tirer sur la répartition des événements dans le DataFrame ? Quel événement semble être le plus fréquent, et comment cela pourrait-il être utile pour l'analyse du comportement des utilisateurs ?
+     - *Indications :* Analysez la fréquence des événements `view`, `addtocart`, et `transaction`, et discutez de l'importance de ces événements dans l'analyse de la conversion et de l'engagement des utilisateurs.
+
+### Partie 5 - analyse d'autres fichiers
+
+
+1. Analyse des catégories de produits
+
+   1. Visualisez le nombre de sous-catégories pour chaque catégorie principale.
+   2. Listez les catégories sans parent (racines).
+   3. Identifiez les catégories ayant le plus de sous-catégories.
+
+---
+
+1. Analyse des produits
+
+   1. Affichez le nombre de produits par catégorie.
+   2. Listez les propriétés disponibles pour les produits.
+   3. Trouvez les produits appartenant à plusieurs catégories.
+
+---
+
+3. Exploration croisée des catégories et des produits
+
+   1. Associez les produits aux catégories et affichez la répartition des propriétés.
+   2. Créez une heatmap des propriétés des produits par catégorie.
+   3. Listez les propriétés les plus fréquentes par catégorie.
+
+---
+
+4. **Exploration des valeurs des produits
+
+   1. Affichez la distribution des valeurs des produits par catégorie.
+   2. Visualisez les valeurs extrêmes des produits par catégorie.
