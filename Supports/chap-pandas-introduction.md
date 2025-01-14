@@ -145,7 +145,7 @@ item_properties_part1 = pd.read_csv('data/item_properties_part1.csv')
 item_properties_part2 = pd.read_csv('data/item_properties_part2.csv')
 ```
 
-1. Fusionnez les données en un seul DataFrame.
+1. Fusionnez les données item_properties_part1 et item_properties_part2 en un seul DataFrame : `concat`.
 2. Conversion des timestamps en datetime : utilisez `to_datetime` de Pandas
 3. Ajoutez le jour de la semaine dans le DataFrame fusionné.
 
