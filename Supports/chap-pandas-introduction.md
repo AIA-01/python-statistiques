@@ -165,22 +165,29 @@ L'objectif est de comparer les taux de conversion des deux groupes et de voir si
 import pandas as pd
 events = pd.read_csv('data/events.csv')
 
-view_events = events[events['event'] == 'view']
-addtocart_events = events[events['event'] == 'addtocart']
-transaction_events = events[events['event'] == 'transaction']
-# Taux de conversion pour les utilisateurs ayant ajouté au panier
-addtocart_conversions = transaction_events[transaction_events['visitorid'].isin(users_addtocart)]['visitorid'].nunique()
+# Partie 1
+# Sachant que l'utilisateur a mis son produit dans le panier on calcule le taux d'achat 
+addtocart_conversions = transaction_events[ transaction_events['visitorid'].isin(users_addtocart)]['visitorid']
 addtocart_total_users = len(users_addtocart)
-addtocart_conversion_rate = addtocart_conversions / addtocart_total_users * 100
+
+addtocart_conversion_rate = len( addtocart_conversions ) / addtocart_total_users * 100
 print(f"Taux de conversion des utilisateurs ayant ajouté des produits au panier : {addtocart_conversion_rate:.2f}%")
 
-# Taux de conversion pour les utilisateurs ayant seulement vu des produits et achetés
-# les utilisateurs peuvent avoir vu les produits et les avoir acheté mais pas mis dans le panier
-view_only_users = events[~events['visitorid'].isin(users_addtocart)]['visitorid'].unique()
-view_only_conversions = transaction_events[transaction_events['visitorid'].isin(view_only_users)]['visitorid'].nunique()
-view_only_total_users = len(view_only_users)
-view_only_conversion_rate = view_only_conversions / view_only_total_users * 100
-print(f"Taux de conversion des utilisateurs ayant seulement vu des produits : {view_only_conversion_rate:.2f}%")
+
+# Partie 2 
+# Calcul le taux des produits uniquement vus et achetés 
+users_addtocart = addtocart_events['visitorid'].unique()
+users_transaction = transaction_events['visitorid'].unique()
+
+view_only_conversions = view_events[(view_events['visitorid'].isin(users_addtocart) == False) & (view_events['visitorid'].isin(users_transaction) == True)]
+['visitorid']
+
+view_only_users = events[  ~events['visitorid'].isin(users_addtocart) ]
+
+view_only_total_users = len( view_only_users )
+
+view_only_conversion_rate = len(view_only_conversions)/ view_only_total_users * 100
+print(f"Taux de conversion des utilisateurs ayant seulement vu des produits : {view_only_conversion_rate:.3f}%")
 ```
 
 ### Partie 3 - faire un document détaillé sur les champs des DataFrames étudiés
