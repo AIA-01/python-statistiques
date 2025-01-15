@@ -179,7 +179,7 @@ print(f"Taux de conversion des utilisateurs ayant ajouté des produits au panier
 users_addtocart = addtocart_events['visitorid'].unique()
 users_transaction = transaction_events['visitorid'].unique()
 
-view_only_conversions = view_events[(view_events['visitorid'].isin(users_addtocart) == False) & (view_events['visitorid'].isin(users_transaction) == True)]
+view_only_conversions = view_events[ ~view_events['visitorid'].isin(users_addtocart) & view_events['visitorid'].isin(users_transaction)]
 ['visitorid']
 
 view_only_users = events[  ~events['visitorid'].isin(users_addtocart) ]
