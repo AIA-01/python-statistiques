@@ -18,7 +18,7 @@
 
 4. Statistiques descriptives
    1. z-score [z-score](./Supports/chap-zscore.md)
-      1. TP z-score (Poids des Chats et des Chiens) [z-score tp](./Supports/tp-z-score.md)
+      1. TP z-score (Poids des Chats et des Chiens) [z-score TP](./Supports/tp-z-score.md)
    2. Loi Normale et TCL [loi normale](./Supports/chap-loi-normale-introduction.md)
       1. TP Loi normale [loi normale TP](./Supports/tp-loi-normale.md)
    
