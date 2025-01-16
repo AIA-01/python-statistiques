@@ -22,8 +22,8 @@ La loi normale est une distribution continue, ce qui signifie qu'elle est utilis
 - **Forme de la courbe** : La courbe de la loi normale est en forme de cloche. Elle est connue sous le nom de "courbe de Gauss". 
 
 - **Paramètres** : La loi normale est entièrement définie par deux paramètres :
-  - **Moyenne ($ \mu$)** : Elle définit le centre de la distribution.
-  - **Écart-type ($ \sigma$)** : Il détermine la dispersion de la distribution. Un petit écart-type signifie que les valeurs sont concentrées autour de la moyenne, tandis qu'un grand écart-type indique une plus grande dispersion.
+  - **Moyenne ($\mu$)** : Elle définit le centre de la distribution.
+  - **Écart-type ($\sigma$)** : Il détermine la dispersion de la distribution. Un petit écart-type signifie que les valeurs sont concentrées autour de la moyenne, tandis qu'un grand écart-type indique une plus grande dispersion.
 
   La notation générale d'une variable aléatoire suivant une loi normale est :
   $X \sim N(\mu, \sigma^2)$
