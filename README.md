@@ -20,6 +20,7 @@
    1. z-score [z-score](./Supports/chap-zscore.md)
       1. TP z-score (Poids des Chats et des Chiens) [z-score tp](./Supports/tp-z-score.md)
    2. Loi Normale et TCL [loi normale](./Supports/chap-loi-normale-introduction.md)
+      1. TP Loi normale [loi normale TP](./Supports/tp-loi-normale.md)
    
 5. Complément en Python
    1. slicing [slicing](./Supports/chap-slicing.md)
