@@ -34,10 +34,12 @@ import matplotlib.pyplot as plt
 np.random.seed(42)
 
 # cats
-cats_weights = np.random.normal(loc=4.0, scale=0.5, size=5000) 
+cats_weights = np.random.normal(loc=4.0, scale=0.5, size=5000)
+# Modifiez le datasets cats_weights pour avoir des valeurs comprises  entre 2 et 6 kg ( troncature entre  2 et 6 kg )
 
 # dogs
-dogs_weights = np.random.normal(loc=12.0, scale=1.5, size=5000) 
+dogs_weights = np.random.normal(loc=12.0, scale=1.5, size=5000)
+# Modifiez le datasets faite une troncature entre  8 et 16 kg
 ```
 
 ---
