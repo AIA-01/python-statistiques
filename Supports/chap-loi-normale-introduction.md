@@ -67,7 +67,7 @@ Cela permet d'utiliser les tables de la loi normale standard pour obtenir des pr
 
 #### 6. Calcul des Probabilités
 
-Les probabilités associées à une variable aléatoire suivant une loi normale peuvent être calculées à l'aide de la fonction de distribution cumulée (CDF). Pour une loi normale standard, cette fonction est notée $ \Phi(z)$, où $ z$ est la variable standardisée.
+Les probabilités associées à une variable aléatoire suivant une loi normale peuvent être calculées à l'aide de la fonction de distribution cumulée (CDF). Pour une loi normale standard, cette fonction est notée $\Phi(z)$, où $ z$ est la variable standardisée.
 
 Par exemple :
 $P(X \leq x) = \Phi\left( \frac{x - \mu}{\sigma} \right)$
