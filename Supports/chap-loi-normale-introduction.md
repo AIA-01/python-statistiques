@@ -27,7 +27,7 @@ La loi normale est une distribution continue, ce qui signifie qu'elle est utilis
 
   La notation générale d'une variable aléatoire suivant une loi normale est :
   $X \sim N(\mu, \sigma^2)$
-  où $ \mu$ est la moyenne et $ \sigma^2$ est la variance (l'écart-type est $ \sigma$).
+  où $\mu$ est la moyenne et $\sigma^2$ est la variance (l'écart-type est $\sigma$).
 
 #### 3. Fonction de Densité de Probabilité
 
