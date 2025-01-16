@@ -201,17 +201,54 @@ Expliquez les champs du DataFrame.
    Créez une visualisation pour afficher le nombre d'occurrences de chaque type d'événement (par exemple, "view", "addtocart", "transaction") dans le DataFrame `events`. Utilisez un graphique en barres pour montrer la répartition de ces événements.
      - *Indications :* Utilisez la fonction `sns.countplot()` pour créer le graphique en barres. N'oubliez pas d'ajouter un titre ainsi que des labels pour les axes afin de rendre le graphique plus lisible.
 
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+events = pd.read_csv('data/events.csv')
+
+plt.figure(figsize=(10, 6))
+sns.countplot(data=events, x='event') 
+plt.title('Distribution des événements')
+plt.xlabel('Type d\'événement')
+plt.ylabel('Nombre d\'occurrences')
+plt.xticks(rotation=45)
+plt.show()
+```
+
+
 2. **Affichage d'un graphique circulaire des événements** :
    Créez un graphique en camembert pour visualiser la distribution des événements dans le DataFrame `events`. 
      - *Indications :* Utilisez `plt.pie()` pour créer le graphique circulaire. Explosez légèrement certaines tranches pour les mettre en évidence et affichez les pourcentages avec `autopct='%1.1f%%'`. Ajoutez un titre pour clarifier ce que le graphique montre.
 
-3. **Personnalisation du graphique** :
+```python
+event_counts = events['event'].value_counts()
+
+# Créer un graphique circulaire
+plt.figure(figsize=(8, 8))
+plt.pie(event_counts, labels=event_counts.index, autopct='%1.1f%%', explode=[0.1] * len(event_counts))  # Explose légèrement chaque tranche
+plt.title('Répartition des événements')
+plt.show()
+```
+
+1. **Personnalisation du graphique** :
    En utilisant le graphique en camembert créé précédemment, assurez-vous que l'aspect du graphique est circulaire (c'est-à-dire que l'axe est égal). Que faites-vous dans le code pour garantir que le graphique ait une forme circulaire ?
      - *Indications :* Utilisez la fonction `plt.axis('equal')` pour vous assurer que le graphique circulaire a un aspect proportionnel et bien centré.
 
-4. **Comparaison entre les types d'événements** :
+```python
+plt.figure(figsize=(8, 8))
+plt.pie(event_counts, labels=event_counts.index, autopct='%1.1f%%', explode=[0.1] * len(event_counts))  # Explose légèrement chaque tranche
+plt.title('Répartition des événements')
+plt.axis('equal')  # Assurer que le graphique soit circulaire
+plt.show()
+```
+
+1. **Comparaison entre les types d'événements** :
    Après avoir créé le graphique en barres et en camembert, quelle conclusion pouvez-vous tirer sur la répartition des événements dans le DataFrame ? Quel événement semble être le plus fréquent, et comment cela pourrait-il être utile pour l'analyse du comportement des utilisateurs ?
      - *Indications :* Analysez la fréquence des événements `view`, `addtocart`, et `transaction`, et discutez de l'importance de ces événements dans l'analyse de la conversion et de l'engagement des utilisateurs.
+  
+Beaucoup de visiteurs consultent les produits sans les acheter.
 
 ### Partie 5 - analyse d'autres fichiers
 
@@ -221,25 +258,38 @@ Expliquez les champs du DataFrame.
    2. Listez les catégories sans parent (racines).
    3. Identifiez les catégories ayant le plus de sous-catégories.
 
+```python
+category_tree = pd.read_csv('data/category_tree.csv')
+
+# parentid est null
+principals_categories = category_tree[category_tree['parentid'].isnull()]['categoryid']
+
+# les catégories ayant des sous-catégories  
+appear_as_parent = principals_categories[principals_categories.isin(category_tree['parentid'])]
+
+if not appear_as_parent.empty:
+    print(appear_as_parent.tolist())
+
+# sous catégories
+sub_categories = category_tree[category_tree['parentid'].notnull()]['parentid']
+sub_categories.value_counts()
+```
+
 ---
 
 1. Analyse des produits
 
    1. Affichez le nombre de produits par catégorie.
    2. Listez les propriétés disponibles pour les produits.
-   3. Trouvez les produits appartenant à plusieurs catégories.
+   3. Trouvez, si il(s) exist(ent) les produits appartenant à plusieurs catégories.
 
 ---
 
 3. Exploration croisée des catégories et des produits
 
-   1. Associez les produits aux catégories et affichez la répartition des propriétés.
-   2. Créez une heatmap des propriétés des produits par catégorie.
-   3. Listez les propriétés les plus fréquentes par catégorie.
+   Travaillez sur le DataFrame `items` (ensembles des produits).
+
+   1. Quels types de property sont associés aux produits ?. Utilisez la méthode `apply` et `unique` sur le DataFrame.
+   2. Identifiez les produits associés à des categoryid spécifiques.
 
 ---
-
-4. **Exploration des valeurs des produits
-
-   1. Affichez la distribution des valeurs des produits par catégorie.
-   2. Visualisez les valeurs extrêmes des produits par catégorie.
