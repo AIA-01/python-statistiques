@@ -9,7 +9,7 @@ La loi normale, également appelée **loi de Gauss** en l'honneur de Carl Friedr
 
 La loi normale est une distribution continue, ce qui signifie qu'elle est utilisée pour des variables aléatoires qui peuvent prendre une infinité de valeurs dans un intervalle donné.
 
->[!NOTES]
+>[!NOTE]
 >Une variable aléatoire est une fonction qui associe un nombre réel à chaque issue d'une expérience aléatoire. 
 >Par exemple, le lancer d'un dé peut être modélisé par une variable aléatoire $𝑋$, $X$ prend la valeur 1, 2, 3, 4, 5 ou 6, selon le résultat du lancer.
 
