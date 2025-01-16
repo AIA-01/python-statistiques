@@ -46,8 +46,8 @@ dogs_weights = np.random.normal(loc=12.0, scale=1.5, size=5000)
 
 #### 1. Calcul des Statistiques
 
-- a. **Calculer / vérifiez  la moyenne et l'écart-type** des poids des chats.
-- b. **Calculer / vérifiez la moyenne et l'écart-type** des poids des chiens.
+- a. **Calculez / vérifiez  la moyenne et l'écart-type** des poids des chats.
+- b. **Calculez / vérifiez la moyenne et l'écart-type** des poids des chiens.
 
 #### 2. Calcul des Z-scores
 
