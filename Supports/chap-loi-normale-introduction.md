@@ -9,7 +9,7 @@ La loi normale, également appelée **loi de Gauss** en l'honneur de Carl Friedr
 
 La loi normale est une distribution continue, ce qui signifie qu'elle est utilisée pour des variables aléatoires qui peuvent prendre une infinité de valeurs dans un intervalle donné.
 
->[!NOTES]
+>[!NOTE]
 >Une variable aléatoire est une fonction qui associe un nombre réel à chaque issue d'une expérience aléatoire. 
 >Par exemple, le lancer d'un dé peut être modélisé par une variable aléatoire $𝑋$, $X$ prend la valeur 1, 2, 3, 4, 5 ou 6, selon le résultat du lancer.
 
@@ -22,12 +22,12 @@ La loi normale est une distribution continue, ce qui signifie qu'elle est utilis
 - **Forme de la courbe** : La courbe de la loi normale est en forme de cloche. Elle est connue sous le nom de "courbe de Gauss". 
 
 - **Paramètres** : La loi normale est entièrement définie par deux paramètres :
-  - **Moyenne ($ \mu$)** : Elle définit le centre de la distribution.
-  - **Écart-type ($ \sigma$)** : Il détermine la dispersion de la distribution. Un petit écart-type signifie que les valeurs sont concentrées autour de la moyenne, tandis qu'un grand écart-type indique une plus grande dispersion.
+  - **Moyenne ($\mu$)** : Elle définit le centre de la distribution.
+  - **Écart-type ($\sigma$)** : Il détermine la dispersion de la distribution. Un petit écart-type signifie que les valeurs sont concentrées autour de la moyenne, tandis qu'un grand écart-type indique une plus grande dispersion.
 
   La notation générale d'une variable aléatoire suivant une loi normale est :
   $X \sim N(\mu, \sigma^2)$
-  où $ \mu$ est la moyenne et $ \sigma^2$ est la variance (l'écart-type est $ \sigma$).
+  où $\mu$ est la moyenne et $\sigma^2$ est la variance (l'écart-type est $\sigma$).
 
 #### 3. Fonction de Densité de Probabilité
 
@@ -36,8 +36,8 @@ La fonction de densité de probabilité (PDF) d'une loi normale est donnée par 
 $f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}$
 
 Cette fonction décrit la probabilité de chaque valeur dans la distribution normale. Les éléments de la formule sont les suivants :
-- $e$ est la base du logarithme naturel (environ 2,71828).
-- $\pi$ est la constante mathématique pi (environ 3,14159).
+- $e$ est la base du logarithme naturel (environ 2,71828...).
+- $\pi$ est la constante mathématique pi (environ 3,14159...).
 - $\mu$ est la moyenne.
 - $\sigma$ est l'écart-type.
 
@@ -67,7 +67,7 @@ Cela permet d'utiliser les tables de la loi normale standard pour obtenir des pr
 
 #### 6. Calcul des Probabilités
 
-Les probabilités associées à une variable aléatoire suivant une loi normale peuvent être calculées à l'aide de la fonction de distribution cumulée (CDF). Pour une loi normale standard, cette fonction est notée $ \Phi(z)$, où $ z$ est la variable standardisée.
+Les probabilités associées à une variable aléatoire suivant une loi normale peuvent être calculées à l'aide de la fonction de distribution cumulée (CDF). Pour une loi normale standard, cette fonction est notée $\Phi(z)$, où $ z$ est la variable standardisée.
 
 Par exemple :
 $P(X \leq x) = \Phi\left( \frac{x - \mu}{\sigma} \right)$
