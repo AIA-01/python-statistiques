@@ -36,8 +36,8 @@ La fonction de densité de probabilité (PDF) d'une loi normale est donnée par 
 $f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}$
 
 Cette fonction décrit la probabilité de chaque valeur dans la distribution normale. Les éléments de la formule sont les suivants :
-- $e$ est la base du logarithme naturel (environ 2,71828).
-- $\pi$ est la constante mathématique pi (environ 3,14159).
+- $e$ est la base du logarithme naturel (environ 2,71828...).
+- $\pi$ est la constante mathématique pi (environ 3,14159...).
 - $\mu$ est la moyenne.
 - $\sigma$ est l'écart-type.
 
