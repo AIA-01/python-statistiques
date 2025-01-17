@@ -89,13 +89,47 @@ print(numbers)
 - La fonction `re.findall()` parcourt la chaîne `value` et cherche toutes les correspondances qui commencent par `n` et sont suivies de chiffres et de points.
 - Elle trouve trois correspondances : `n277.200`, `n552.000`, et `n720.000`.
 
+
+## `search` 
+
+`search` est une autre fonction de re qui permet de trouver la première occurence.
+
+```python
+import re
+
+r = re.search(motif,  "n891 12 21"  )
+
+# récupération de la valeur qui match si elle existe avec la méthode group
+print( r.group() )
+```
+
+### Exercice d'application
+
+```python
+# capturer les nombres préfixés par x suivit d'un chiffre puis suivi d'une lettre
+text = "n891 xbcacd 112 12 879 x12 x2 n785..91 n78.10 987 xa  876"
+
+# Suivi d'un chiffre ou d'une lettre plusieurs fois 
+motif = r'x[\da-zA-Z]+'
+print( re.findall( motif, text ) )
+
+# Suivi que d'un chiffre ou une lettre
+motif = r'x[\da-zA-Z]'
+print( re.findall( motif, text ) )
+
+"""
+['xbcacd', 'x12', 'x2', 'xa']
+['xb', 'x1', 'x2', 'xa']
+"""
+
+```
+
+
 ### Cas d'usage
 
 Cette expression régulière peut être utile dans de nombreux scénarios, comme par exemple :
 - **Extraction de nombres spécifiques** dans des logs ou des chaînes de texte qui suivent un certain format.
 - **Filtrage de valeurs particulières** dans des données textuelles où certaines informations sont précédées par un caractère particulier (comme ici `n`).
 
-### Conclusion
 
-L'utilisation de `re.findall(r'n[\d\.]+', value)` permet d'extraire efficacement des nombres qui commencent par `n` dans une chaîne. En maîtrisant les bases des expressions régulières avec Python, vous pouvez résoudre de nombreux problèmes de manipulation de texte et de données.
 
