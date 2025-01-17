@@ -132,3 +132,29 @@ La méthode `apply()` est idéale pour des transformations ou calculs plus compl
 ### Exercice
 
 1. Créez une fonction `extract_numbers_starting_with_n` qui extrait les valeurs numériques du dataset `items` du projet.
+
+```python
+# première version sans re (re == expression régulière dans Python)
+def extract_numbers_starting_with_n(value):
+    # le join prend une liste et joint avec une chaine de caractères les valeurs de la liste
+    # attention le séparateur est dans la chaine au début avant la méthode elle-meme "".join(l)
+    return " ".join( [ e for e in value.split() if e[0] == 'n' ])
+
+itemsSearch = items[ (items['property'] != 'available' )  & (df['property'] != 'categoryid' ) ]
+
+itemsSearch['value'].apply( extract_numbers_starting_with_n )
+
+# deuxième version 
+import re
+
+def extract_numbers_starting_with_n(value):
+    result = re.findall(r'n[\d\.]+', value)
+
+    return "".join( result )
+
+dfSearch['value'].apply(extract_numbers_starting_with_n)
+
+itemsSearch = items[ (items['property'] != 'available' )  & (df['property'] != 'categoryid' ) ]
+
+itemsSearch['value'].apply( extract_numbers_starting_with_n )
+```

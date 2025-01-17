@@ -270,8 +270,9 @@ appear_as_parent = principals_categories[principals_categories.isin(category_tre
 if not appear_as_parent.empty:
     print(appear_as_parent.tolist())
 
-# sous catégories
+# sous catégories Identifiez les catégories ayant le plus de sous-catégories.
 sub_categories = category_tree[category_tree['parentid'].notnull()]['parentid']
+# agrégation des valeurs ( valeurs ordonnées )
 sub_categories.value_counts()
 ```
 
@@ -280,8 +281,23 @@ sub_categories.value_counts()
 1. Analyse des produits
 
    1. Affichez le nombre de produits par catégorie.
-   2. Listez les propriétés disponibles pour les produits.
-   3. Trouvez, si il(s) exist(ent) les produits appartenant à plusieurs catégories.
+   2. Récupérez les valeurs de type nXXXX.XX où X est un nombre dans le DataFrame `items`
+
+```python
+def search_numeric(value):
+    # le join prend une liste et joint avec une chaine de caractères les valeurs de la liste
+    # attention le séparateur est dans la chaine au début avant la méthode elle-meme "".join(l)
+    return " ".join( [ e for e in value.split() if e[0] == 'n' ])
+
+items['value'].apply(search_numeric)
+
+itemsSearch = items[ (items['property'] != 'available' )  & (df['property'] != 'categoryid' ) ]
+
+itemsSearch['value'].apply( search_numeric )
+```   
+
+   3. Listez les propriétés disponibles pour les produits.
+   4. Trouvez, si il(s) exist(ent) les produits appartenant à plusieurs catégories.
 
 ---
 
@@ -290,6 +306,6 @@ sub_categories.value_counts()
    Travaillez sur le DataFrame `items` (ensembles des produits).
 
    1. Quels types de property sont associés aux produits ?. Utilisez la méthode `apply` et `unique` sur le DataFrame.
-   2. Identifiez les produits associés à des categoryid spécifiques.
+   2. Identifiez les produits associés à des categoryid spécifiques, calculez le nombre de produits associées à chacune des propriétés.
 
 ---
