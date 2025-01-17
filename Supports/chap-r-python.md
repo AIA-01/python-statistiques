@@ -33,7 +33,39 @@ L'expression régulière `r'n[\d\.]+'` permet de rechercher des nombres qui comm
 
 Prenons un exemple où nous avons une chaîne de texte contenant des nombres qui commencent par `n`, et utilisons `re.findall()` pour extraire ces valeurs.
 
-### Exemple :
+### Exemples 1:
+
+```python
+import re
+
+# on cherche 1 dans le texte "n891 879 n785.90 n78.00 987 876" dès qu'il trouve un "1" il est retiré de la recherche 
+result = re.findall(r"1", "n891 879 n785.90 n78.00 987 876")
+# ['1']
+
+# Autre exemple 12 ou 1 dans cet ordre si vous changez l'ordre 1 ou 12, cela changera la recherche
+re.findall(r'12|1', "n891 112 12 879 n785.90 n78.00 987 876")
+# ['1', '1', '12', '12']
+
+motif = r'n[1-9]+\.[1-9]+|n[1-9]+' # une plage de valeur est définie par [1-9] le symbole + <=> de 1 à plusieurs 
+
+"""
+n[1-9]+\.[1-9]+|n[1-9]+
+"""
+n suivi d'un nombre compris entre 1 et 9 répété(s) de 1 à plusieurs fois, suivi d'un point . et d'un nombre compris 
+entre 1 à 9 de 1 à plusieurs fois OU ( avec le | ) ...
+"""
+
+motif = r'12|[12]'
+re.findall(motif, "n891 12 21" )
+
+"""
+
+re.findall(motif,  "n891 112 12 879 n785.91 n78.10 987 876" )
+# ['1', '12', '2', '1']
+```
+
+
+### Exemple 2 :
 
 ```python
 import re
@@ -57,13 +89,50 @@ print(numbers)
 - La fonction `re.findall()` parcourt la chaîne `value` et cherche toutes les correspondances qui commencent par `n` et sont suivies de chiffres et de points.
 - Elle trouve trois correspondances : `n277.200`, `n552.000`, et `n720.000`.
 
+
+## `search` 
+
+`search` est une autre fonction de re qui permet de trouver la première occurence.
+
+```python
+import re
+
+r = re.search(motif,  "n891 12 21"  )
+
+# récupération de la valeur qui match si elle existe avec la méthode group
+print( r.group() )
+```
+
+### Exercice d'application
+
+```python
+# capturer les nombres préfixés par x suivit d'un chiffre puis suivi d'une lettre
+text = "n891 xbcacd 112 12 879 x12 x2 n785..91 n78.10 987 xa  876"
+
+# Suivi d'un chiffre ou d'une lettre plusieurs fois 
+motif = r'x[\da-zA-Z]+'
+print( re.findall( motif, text ) )
+
+"""
+['xbcacd', 'x12', 'x2', 'xa']
+"""
+
+# Suivi que d'un chiffre ou une lettre
+motif = r'x[\da-zA-Z]'
+print( re.findall( motif, text ) )
+
+"""
+['xb', 'x1', 'x2', 'xa']
+"""
+
+```
+
+
 ### Cas d'usage
 
 Cette expression régulière peut être utile dans de nombreux scénarios, comme par exemple :
 - **Extraction de nombres spécifiques** dans des logs ou des chaînes de texte qui suivent un certain format.
 - **Filtrage de valeurs particulières** dans des données textuelles où certaines informations sont précédées par un caractère particulier (comme ici `n`).
 
-### Conclusion
 
-L'utilisation de `re.findall(r'n[\d\.]+', value)` permet d'extraire efficacement des nombres qui commencent par `n` dans une chaîne. En maîtrisant les bases des expressions régulières avec Python, vous pouvez résoudre de nombreux problèmes de manipulation de texte et de données.
 
