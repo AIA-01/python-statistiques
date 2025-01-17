@@ -33,7 +33,39 @@ L'expression régulière `r'n[\d\.]+'` permet de rechercher des nombres qui comm
 
 Prenons un exemple où nous avons une chaîne de texte contenant des nombres qui commencent par `n`, et utilisons `re.findall()` pour extraire ces valeurs.
 
-### Exemple :
+### Exemples 1:
+
+```python
+import re
+
+# on cherche 1 dans le texte "n891 879 n785.90 n78.00 987 876" dès qu'il trouve un "1" il est retiré de la recherche 
+result = re.findall(r"1", "n891 879 n785.90 n78.00 987 876")
+# ['1']
+
+# Autre exemple 12 ou 1 dans cet ordre si vous changez l'ordre 1 ou 12, cela changera la recherche
+re.findall(r'12|1', "n891 112 12 879 n785.90 n78.00 987 876")
+# ['1', '1', '12', '12']
+
+motif = r'n[1-9]+\.[1-9]+|n[1-9]+' # une plage de valeur est définie par [1-9] le symbole + <=> de 1 à plusieurs 
+
+"""
+n[1-9]+\.[1-9]+|n[1-9]+
+"""
+n suivi d'un nombre compris entre 1 et 9 répété(s) de 1 à plusieurs fois, suivi d'un point . et d'un nombre compris 
+entre 1 à 9 de 1 à plusieurs fois OU ( avec le | ) ...
+"""
+
+motif = r'12|[12]'
+re.findall(motif, "n891 12 21" )
+
+"""
+
+re.findall(motif,  "n891 112 12 879 n785.91 n78.10 987 876" )
+# ['1', '12', '2', '1']
+```
+
+
+### Exemple 2 :
 
 ```python
 import re
