@@ -113,6 +113,28 @@ dtype: int64
 
 Ici, la fonction `calculate_difference()` soustrait les valeurs de la colonne `'A'` de celles de la colonne `'B'` pour chaque ligne.
 
+## Un autre exemple avec des produits
+
+```python
+products = pd.DataFrame({
+    'prices HT': [0.6, 0.5, 1],
+    'name': ["apple", "orange", "banana"]
+})
+
+# ajouter une colonne des prix TTC avec une TVA 20 %
+def ttc(value):
+    return value * 1.2
+
+products['prices TTC'] = products['prices HT'].apply( ttc )
+
+"""
+prices HT	name	prices TTC
+0	0.6	apple	0.72
+1	0.5	orange	0.60
+2	1.0	banana	1.20
+"""
+```
+
 #### 4. **Optimisation avec `apply()`** :
 
 L'utilisation de `apply()` peut parfois être moins performante que les opérations vectorisées directes de Pandas, car elle applique une fonction sur chaque élément ou chaque ligne, ce qui peut être plus lent sur de grands ensembles de données. Cependant, elle reste très utile pour les calculs personnalisés.
