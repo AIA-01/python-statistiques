@@ -113,12 +113,15 @@ text = "n891 xbcacd 112 12 879 x12 x2 n785..91 n78.10 987 xa  876"
 motif = r'x[\da-zA-Z]+'
 print( re.findall( motif, text ) )
 
+"""
+['xbcacd', 'x12', 'x2', 'xa']
+"""
+
 # Suivi que d'un chiffre ou une lettre
 motif = r'x[\da-zA-Z]'
 print( re.findall( motif, text ) )
 
 """
-['xbcacd', 'x12', 'x2', 'xa']
 ['xb', 'x1', 'x2', 'xa']
 """
 
